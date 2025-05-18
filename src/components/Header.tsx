@@ -20,6 +20,7 @@ const Header = () => {
             <Link to="/" className="font-medium text-gray-700 hover:text-artisan-blue transition-colors">Accueil</Link>
             <Link to="/artisans" className="font-medium text-gray-700 hover:text-artisan-blue transition-colors">Artisans</Link>
             <Link to="/tools" className="font-medium text-gray-700 hover:text-artisan-blue transition-colors">Outils</Link>
+            <Link to="/dashboard" className="font-medium text-gray-700 hover:text-artisan-blue transition-colors">Tableau de bord</Link>
             <Link to="#" className="font-medium text-gray-700 hover:text-artisan-blue transition-colors">Comment ça marche</Link>
           </nav>
 
@@ -28,7 +29,9 @@ const Header = () => {
               <Search size={16} />
               <span>Rechercher</span>
             </Button>
-            <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark">Se connecter</Button>
+            <Link to="/auth">
+              <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark">Se connecter</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,6 +69,13 @@ const Header = () => {
                 Outils
               </Link>
               <Link 
+                to="/dashboard" 
+                className="font-medium text-gray-700 hover:text-artisan-blue transition-colors px-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Tableau de bord
+              </Link>
+              <Link 
                 to="#" 
                 className="font-medium text-gray-700 hover:text-artisan-blue transition-colors px-2"
                 onClick={() => setIsMenuOpen(false)}
@@ -77,7 +87,9 @@ const Header = () => {
                   <Search size={16} />
                   <span>Rechercher</span>
                 </Button>
-                <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark">Se connecter</Button>
+                <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
+                  <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark w-full">Se connecter</Button>
+                </Link>
               </div>
             </nav>
           </div>

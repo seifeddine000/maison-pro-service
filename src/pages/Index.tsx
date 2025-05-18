@@ -5,7 +5,7 @@ import Hero from '@/components/Hero';
 import ServiceCategories from '@/components/ServiceCategories';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { UserCheck, Tool, Star, Shield, ArrowRight } from 'lucide-react';
+import { UserCheck, Wrench, Star, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -15,6 +15,40 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero />
+        
+        {/* Welcome Section */}
+        <section className="py-12 bg-white">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-6 text-center">Bienvenue sur ArtiConnect</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Bienvenue sur notre plateforme de mise en relation dédiée aux services professionnels. 
+                Que vous soyez un particulier à la recherche d'un artisan qualifié, un professionnel 
+                souhaitant proposer ses compétences, ou un magasin d'outillage cherchant à toucher 
+                une clientèle ciblée, vous êtes au bon endroit.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Notre mission est de simplifier l'accès aux services fiables et rapides, en connectant 
+                les clients aux meilleurs prestataires de leur région. Explorez notre interface intuitive, 
+                choisissez le service qu'il vous faut, et bénéficiez d'un accompagnement tout au long du 
+                processus, depuis la recherche jusqu'à la finalisation de la mission.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Avec nous, trouvez le bon professionnel au bon moment, et gagnez en temps, 
+                en qualité et en confiance.
+              </p>
+              
+              <div className="flex justify-center gap-4">
+                <Link to="/artisans">
+                  <Button size="lg" className="bg-artisan-blue hover:bg-artisan-blue-dark">
+                    Découvrir nos artisans
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <ServiceCategories />
         
         {/* How It Works Section */}
@@ -88,7 +122,7 @@ const Index = () => {
                   
                   <div className="flex">
                     <div className="mr-4 text-artisan-blue">
-                      <Tool size={24} />
+                      <Wrench size={24} />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1">Outils professionnels</h3>

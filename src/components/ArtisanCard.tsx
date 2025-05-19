@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Star, MapPin, CheckCircle2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-
 interface ArtisanCardProps {
   id: string;
   name: string;
@@ -15,32 +13,24 @@ interface ArtisanCardProps {
   profileImage: string;
   categories: string[];
   description: string;
-  hourlyRate?: string;
 }
-
-const ArtisanCard: React.FC<ArtisanCardProps> = ({ 
+const ArtisanCard: React.FC<ArtisanCardProps> = ({
   id,
-  name, 
-  profession, 
-  rating, 
-  reviewCount, 
-  location, 
-  verified, 
+  name,
+  profession,
+  rating,
+  reviewCount,
+  location,
+  verified,
   profileImage,
   categories,
-  description,
-  hourlyRate
+  description
 }) => {
-  return (
-    <Card className="card-hover overflow-hidden bg-white">
+  return <Card className="card-hover overflow-hidden bg-white">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* Image Section */}
-        <div className="md:col-span-1">
-          <img 
-            src={profileImage} 
-            alt={name}
-            className="w-full h-48 md:h-full object-cover" 
-          />
+        <div className="">
+          <img src={profileImage} alt={name} className="w-full h-48 md:h-full object-cover" />
         </div>
 
         {/* Content Section */}
@@ -49,11 +39,6 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
             <div>
               <h3 className="text-xl font-semibold">{name}</h3>
               <p className="text-artisan-blue font-medium">{profession}</p>
-              {hourlyRate && (
-                <p className="text-green-600 font-semibold text-sm mt-1">
-                  Tarif: {hourlyRate} / heure
-                </p>
-              )}
             </div>
             <div className="flex items-center">
               <Star className="text-yellow-500 fill-yellow-500 w-5 h-5" />
@@ -65,12 +50,10 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
           <div className="flex items-center mt-2 text-gray-600">
             <MapPin size={16} className="mr-1" />
             <span className="text-sm">{location}</span>
-            {verified && (
-              <div className="ml-3 flex items-center text-green-600">
+            {verified && <div className="ml-3 flex items-center text-green-600">
                 <CheckCircle2 size={16} className="mr-1" />
                 <span className="text-sm">Vérifié</span>
-              </div>
-            )}
+              </div>}
           </div>
           
           <div className="mt-3">
@@ -78,18 +61,13 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
           </div>
           
           <div className="mt-3 flex flex-wrap gap-2">
-            {categories.map((category, index) => (
-              <Badge key={index} variant="outline" className="bg-blue-50 text-artisan-blue border-artisan-blue">
+            {categories.map((category, index) => <Badge key={index} variant="outline" className="bg-blue-50 text-artisan-blue border-artisan-blue">
                 {category}
-              </Badge>
-            ))}
+              </Badge>)}
           </div>
           
           <div className="mt-4 flex justify-between items-center">
-            <a 
-              href={`/artisan/${id}`} 
-              className="text-artisan-blue hover:text-artisan-blue-dark font-medium"
-            >
+            <a href={`/artisan/${id}`} className="text-artisan-blue hover:text-artisan-blue-dark font-medium">
               Voir profil
             </a>
             <button className="btn-primary">
@@ -98,8 +76,6 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
           </div>
         </div>
       </div>
-    </Card>
-  );
+    </Card>;
 };
-
 export default ArtisanCard;

@@ -47,7 +47,7 @@ const Hero = () => {
         
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-12 animate-slide-in" dir={language === "ar" ? "rtl" : "ltr"}>
-            <h1 className="Notre plateforme facilite la mise en relation entre clients, artisans et magasins sp\xE9cialis\xE9s, afin d\u2019offrir des services professionnels fiables et rapides. Que vous recherchiez un prestataire, souhaitiez proposer vos comp\xE9tences ou repr\xE9senter un magasin, nous vous offrons une interface simple et un accompagnement complet, de la recherche jusqu\u2019\xE0 la r\xE9alisation de la mission, pour gagner du temps avec confiance et qualit\xE9.">
+            <h1 className="">
               {content[language].title}
             </h1>
             

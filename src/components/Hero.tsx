@@ -52,7 +52,7 @@ const Hero = () => {
             </h1>
             
             
-            <p className="text-lg mb-8 text-blue-100">
+            <p className="text-lg mb-8 text-lime-100">
               {content[language].benefits}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

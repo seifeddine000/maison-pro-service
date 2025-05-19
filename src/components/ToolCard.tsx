@@ -32,6 +32,10 @@ const ToolCard: React.FC<ToolCardProps> = ({
     ? price - (price * discountPercentage / 100) 
     : null;
     
+  const formatPrice = (price: number) => {
+    return `${price.toLocaleString('fr-DZ')} DZD`;
+  };
+
   return (
     <Card className="card-hover overflow-hidden bg-white h-full flex flex-col">
       <div className="relative">
@@ -86,15 +90,15 @@ const ToolCard: React.FC<ToolCardProps> = ({
             {discountedPrice ? (
               <>
                 <span className="text-xl font-bold text-artisan-blue mr-2">
-                  {discountedPrice.toFixed(2)}€
+                  {formatPrice(discountedPrice)}
                 </span>
                 <span className="text-gray-500 line-through">
-                  {price.toFixed(2)}€
+                  {formatPrice(price)}
                 </span>
               </>
             ) : (
               <span className="text-xl font-bold text-artisan-blue">
-                {price.toFixed(2)}€
+                {formatPrice(price)}
               </span>
             )}
           </div>

@@ -13,67 +13,72 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ArtisanCard from '@/components/ArtisanCard';
 
-// Sample artisans data
+// Updated artisans data with Arabic names and Algerian pricing
 const artisansData = [
   {
     id: '1',
-    name: 'Thomas Dupont',
-    profession: 'Plombier',
+    name: 'خالد بن عمر (Khaled)',
+    profession: 'Chauffagiste',
     rating: 4.8,
     reviewCount: 124,
-    location: 'Paris',
+    location: 'Alger',
     verified: true,
     profileImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a',
-    categories: ['Plomberie', 'Chauffage', 'Installation'],
-    description: 'Plombier professionnel avec plus de 15 ans d\'expérience. Spécialisé dans les installations et réparations de tout système de plomberie.'
+    categories: ['Chauffage', 'Plomberie', 'Installation'],
+    description: 'Chauffagiste professionnel avec plus de 15 ans d\'expérience. Spécialisation en installations et réparations de systèmes de chauffage.',
+    hourlyRate: '1200 DZD'
   },
   {
     id: '2',
-    name: 'Marie Lambert',
+    name: 'سلمى عمراني (Salma)',
     profession: 'Électricienne',
     rating: 4.7,
     reviewCount: 98,
-    location: 'Lyon',
+    location: 'Oran',
     verified: true,
     profileImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2',
     categories: ['Électricité', 'Domotique', 'Installation'],
-    description: 'Électricienne certifiée, expérimentée dans les installations électriques résidentielles et commerciales. Spécialiste en domotique.'
+    description: 'Électricienne certifiée, expérimentée dans les installations électriques résidentielles et commerciales. Spécialiste en domotique.',
+    hourlyRate: '1500 DZD'
   },
   {
     id: '3',
-    name: 'Jean Moreau',
+    name: 'محمد بلقاسم (Mohamed)',
     profession: 'Menuisier',
     rating: 4.9,
     reviewCount: 145,
-    location: 'Marseille',
+    location: 'Constantine',
     verified: true,
     profileImage: 'https://images.unsplash.com/photo-1540479859555-17af45c78602',
     categories: ['Menuiserie', 'Ébénisterie', 'Rénovation'],
-    description: 'Menuisier ébéniste avec une passion pour les travaux de précision. Création de meubles sur mesure et restauration d\'antiquités.'
+    description: 'Menuisier ébéniste avec une passion pour les travaux de précision. Création de meubles sur mesure et restauration d\'antiquités.',
+    hourlyRate: '1400 DZD'
   },
   {
     id: '4',
-    name: 'Sophie Martin',
+    name: 'فاطمة الزهراء (Fatima)',
     profession: 'Peintre',
     rating: 4.5,
     reviewCount: 87,
-    location: 'Bordeaux',
+    location: 'Annaba',
     verified: false,
     profileImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
     categories: ['Peinture', 'Décoration', 'Revêtement'],
-    description: 'Peintre décoratrice spécialisée dans les finitions de qualité et les techniques décoratives innovantes pour tous vos intérieurs.'
+    description: 'Peintre décoratrice spécialisée dans les finitions de qualité et les techniques décoratives innovantes pour tous vos intérieurs.',
+    hourlyRate: '1000 DZD'
   },
   {
     id: '5',
-    name: 'Pierre Leroy',
+    name: 'كريم حسان (Karim)',
     profession: 'Carreleur',
     rating: 4.6,
     reviewCount: 73,
-    location: 'Toulouse',
+    location: 'Sétif',
     verified: true,
     profileImage: 'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6',
     categories: ['Carrelage', 'Revêtement sol', 'Salle de bain'],
-    description: 'Carreleur professionnel expert en pose de carrelage et de revêtement de sol. Spécialisation dans les salles de bain et cuisines.'
+    description: 'Carreleur professionnel expert en pose de carrelage et de revêtement de sol. Spécialisation dans les salles de bain et cuisines.',
+    hourlyRate: '1300 DZD'
   }
 ];
 
@@ -143,7 +148,7 @@ const ArtisansPage = () => {
           <div className="container-custom">
             <h1 className="text-3xl font-bold mb-4">Trouvez les meilleurs artisans</h1>
             <p className="max-w-2xl">
-              Des professionnels qualifiés et vérifiés pour tous vos projets, disponibles dans votre région.
+              Des professionnels qualifiés et vérifiés comme خالد (chauffagiste) ou سلمى (électricienne) pour tous vos projets, disponibles dans votre région en Algérie.
             </p>
             
             <div className="mt-6 relative">

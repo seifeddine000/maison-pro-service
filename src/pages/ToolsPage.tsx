@@ -11,13 +11,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ToolCard from '@/components/ToolCard';
 
-// Sample tools data
+// Updated tools data with prices in Algerian dinars (DZD)
 const toolsData = [
   {
     id: '1',
     name: 'Perceuse sans fil 18V',
     category: 'Perçage',
-    price: 129.99,
+    price: 8000,
     rating: 4.7,
     reviewCount: 142,
     image: 'https://images.unsplash.com/photo-1572981779307-38e053ec0a36',
@@ -28,7 +28,7 @@ const toolsData = [
     id: '2',
     name: 'Scie circulaire professionnelle',
     category: 'Découpe',
-    price: 199.99,
+    price: 12500,
     rating: 4.8,
     reviewCount: 87,
     image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c',
@@ -39,7 +39,7 @@ const toolsData = [
     id: '3',
     name: 'Coffret de tournevis de précision',
     category: 'Outillage à main',
-    price: 49.99,
+    price: 3200,
     rating: 4.6,
     reviewCount: 213,
     image: 'https://images.unsplash.com/photo-1581166397057-235af2b3c6dd',
@@ -50,7 +50,7 @@ const toolsData = [
     id: '4',
     name: 'Marteau de charpentier',
     category: 'Outillage à main',
-    price: 34.99,
+    price: 1200,
     rating: 4.5,
     reviewCount: 89,
     image: 'https://images.unsplash.com/photo-1586864387789-628af9feed72',
@@ -61,7 +61,7 @@ const toolsData = [
     id: '5',
     name: 'Niveau laser professionnel',
     category: 'Mesure',
-    price: 159.99,
+    price: 9500,
     rating: 4.9,
     reviewCount: 56,
     image: 'https://images.unsplash.com/photo-1623121222577-611601373bdd',
@@ -72,7 +72,7 @@ const toolsData = [
     id: '6',
     name: 'Scie sauteuse électrique',
     category: 'Découpe',
-    price: 89.99,
+    price: 5800,
     rating: 4.4,
     reviewCount: 71,
     image: 'https://images.unsplash.com/photo-1518709414768-a88981a4515d',
@@ -83,7 +83,7 @@ const toolsData = [
     id: '7',
     name: 'Ponceuse excentrique',
     category: 'Ponçage',
-    price: 119.99,
+    price: 7200,
     rating: 4.6,
     reviewCount: 94,
     image: 'https://images.unsplash.com/photo-1613723739945-669e31835f98',
@@ -94,7 +94,7 @@ const toolsData = [
     id: '8',
     name: 'Kit de clés à douille',
     category: 'Outillage à main',
-    price: 79.99,
+    price: 4500,
     rating: 4.7,
     reviewCount: 128,
     image: 'https://images.unsplash.com/photo-1541474583361-8f9a5d52e822',
@@ -154,7 +154,7 @@ const ToolsPage = () => {
           <div className="container-custom">
             <h1 className="text-3xl font-bold mb-4">Outils et équipements professionnels</h1>
             <p className="max-w-2xl">
-              Trouvez tous les outils nécessaires pour vos projets, sélectionnés pour leur qualité et leur durabilité.
+              Trouvez tous les outils nécessaires pour vos projets, comme les marteaux à 1 200 DZD et les perceuses à 8 000 DZD, sélectionnés pour leur qualité et leur durabilité. Paiement en dinars algériens (DZD).
             </p>
             
             <div className="mt-6 relative">

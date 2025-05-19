@@ -15,6 +15,7 @@ interface ArtisanCardProps {
   profileImage: string;
   categories: string[];
   description: string;
+  hourlyRate?: string;
 }
 
 const ArtisanCard: React.FC<ArtisanCardProps> = ({ 
@@ -27,7 +28,8 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
   verified, 
   profileImage,
   categories,
-  description 
+  description,
+  hourlyRate
 }) => {
   return (
     <Card className="card-hover overflow-hidden bg-white">
@@ -47,6 +49,11 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
             <div>
               <h3 className="text-xl font-semibold">{name}</h3>
               <p className="text-artisan-blue font-medium">{profession}</p>
+              {hourlyRate && (
+                <p className="text-green-600 font-semibold text-sm mt-1">
+                  Tarif: {hourlyRate} / heure
+                </p>
+              )}
             </div>
             <div className="flex items-center">
               <Star className="text-yellow-500 fill-yellow-500 w-5 h-5" />

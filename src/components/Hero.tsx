@@ -1,9 +1,7 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Hero = () => {
   const [language, setLanguage] = useState<"fr" | "ar">("fr");
 
@@ -34,26 +32,14 @@ const Hero = () => {
       serviceTitle: "ما هي الخدمة التي تبحث عنها؟"
     }
   };
-  
-  return (
-    <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24">
+  return <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24">
       <div className="container-custom">
         <div className="flex justify-end mb-4">
           <div className="flex items-center space-x-2">
-            <Button 
-              variant={language === "fr" ? "default" : "outline"} 
-              size="sm" 
-              onClick={() => setLanguage("fr")}
-              className="text-sm bg-white text-blue-700 hover:bg-blue-50"
-            >
+            <Button variant={language === "fr" ? "default" : "outline"} size="sm" onClick={() => setLanguage("fr")} className="text-sm bg-white text-blue-700 hover:bg-blue-50">
               Français
             </Button>
-            <Button 
-              variant={language === "ar" ? "default" : "outline"} 
-              size="sm" 
-              onClick={() => setLanguage("ar")}
-              className="text-sm bg-white text-blue-700 hover:bg-blue-50"
-            >
+            <Button variant={language === "ar" ? "default" : "outline"} size="sm" onClick={() => setLanguage("ar")} className="text-sm bg-white text-blue-700 hover:bg-blue-50">
               العربية
             </Button>
           </div>
@@ -64,12 +50,8 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
               {content[language].title}
             </h1>
-            <p className="text-lg mb-4 text-blue-100">
-              {content[language].description}
-            </p>
-            <p className="text-lg mb-4 text-blue-100">
-              {content[language].details}
-            </p>
+            
+            
             <p className="text-lg mb-8 text-blue-100">
               {content[language].benefits}
             </p>
@@ -95,18 +77,10 @@ const Hero = () => {
               <div className="flex flex-col gap-4">
                 <div className="relative">
                   <Search className={`absolute ${language === "ar" ? "right-3" : "left-3"} top-3 text-gray-400`} size={20} />
-                  <input 
-                    type="text" 
-                    placeholder={content[language].searchPlaceholder}
-                    className={`w-full ${language === "ar" ? "pr-10 pl-4" : "pl-10 pr-4"} py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue`}
-                  />
+                  <input type="text" placeholder={content[language].searchPlaceholder} className={`w-full ${language === "ar" ? "pr-10 pl-4" : "pl-10 pr-4"} py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue`} />
                 </div>
                 <div className="relative">
-                  <input 
-                    type="text" 
-                    placeholder={content[language].locationPlaceholder}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue"
-                  />
+                  <input type="text" placeholder={content[language].locationPlaceholder} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue" />
                 </div>
                 <Button className="w-full bg-artisan-blue hover:bg-artisan-blue-dark">
                   {content[language].search}
@@ -116,8 +90,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import CategoryCard from './CategoryCard';
-import { Wrench, Zap, Paintbrush, Home, Hammer, Droplet, SquareDashedBottom, Thermometer } from 'lucide-react';
+import { Wrench, Zap, Paintbrush, Home, Hammer, Droplet, SquareDashedBottom, Thermometer, Scissors } from 'lucide-react';
 
 const ServiceCategories = () => {
   const categories = [
@@ -36,10 +36,10 @@ const ServiceCategories = () => {
       link: '/artisans?category=menuiserie'
     },
     {
-      icon: <Droplet size={32} />,
-      title: 'Étanchéité',
-      description: 'Solutions d\'étanchéité pour toitures et terrasses',
-      link: '/artisans?category=etancheite'
+      icon: <Scissors size={32} />,
+      title: 'Couture',
+      description: 'Atelier de couture, confection et retouche de vêtements',
+      link: '/artisans?category=couture'
     },
     {
       icon: <SquareDashedBottom size={32} />,

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -13,7 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ArtisanCard from '@/components/ArtisanCard';
 
-// Updated artisans data with Arabic names and Algerian pricing
+// Updated artisans data with Arabic names and Algerian context
 const artisansData = [
   {
     id: '1',
@@ -79,6 +78,19 @@ const artisansData = [
     categories: ['Carrelage', 'Revêtement sol', 'Salle de bain'],
     description: 'Carreleur professionnel expert en pose de carrelage et de revêtement de sol. Spécialisation dans les salles de bain et cuisines.',
     hourlyRate: '1300 DZD'
+  },
+  {
+    id: '6',
+    name: 'أمينة بلعيد (Amina)',
+    profession: 'Couturier',
+    rating: 4.9,
+    reviewCount: 156,
+    location: 'Tlemcen',
+    verified: true,
+    profileImage: 'https://images.unsplash.com/photo-1621184455862-c163dfb30e0f',
+    categories: ['Couture', 'Retouche', 'Confection'],
+    description: 'Atelier de couture spécialisé en création sur mesure et retouches de qualité. Travail soigné pour tous vos vêtements et textiles.',
+    hourlyRate: '900 DZD'
   }
 ];
 
@@ -135,7 +147,7 @@ const ArtisansPage = () => {
   const availableCategories = [
     'Plomberie', 'Électricité', 'Menuiserie', 'Peinture', 
     'Carrelage', 'Chauffage', 'Rénovation', 'Domotique', 
-    'Installation', 'Décoration'
+    'Installation', 'Décoration', 'Couture', 'Retouche', 'Confection'
   ];
 
   return (
@@ -148,7 +160,7 @@ const ArtisansPage = () => {
           <div className="container-custom">
             <h1 className="text-3xl font-bold mb-4">Trouvez les meilleurs artisans</h1>
             <p className="max-w-2xl">
-              Des professionnels qualifiés et vérifiés comme خالد (chauffagiste) ou سلمى (électricienne) pour tous vos projets, disponibles dans votre région en Algérie.
+              Des professionnels qualifiés et vérifiés comme خالد (chauffagiste), أمينة (couturier) ou سلمى (électricienne) pour tous vos projets, disponibles dans votre région en Algérie.
             </p>
             
             <div className="mt-6 relative">

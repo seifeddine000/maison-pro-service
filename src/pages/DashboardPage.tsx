@@ -8,6 +8,58 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@
 import { Search, MessageSquare, Star, Bell, Calendar, UserCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// Define specific types for each user type content
+type ClientContent = {
+  title: string;
+  description: string;
+  searchTitle: string;
+  requestsTitle: string;
+  searchPlaceholder: string;
+  locationPlaceholder: string;
+  search: string;
+  noRequests: string;
+  viewAll: string;
+  intro: string[];
+}
+
+type ArtisanContent = {
+  title: string;
+  description: string;
+  requestsTitle: string;
+  upcomingTitle: string;
+  ratingsTitle: string;
+  noRequests: string;
+  noUpcoming: string;
+  noRatings: string;
+  viewAll: string;
+  intro: string[];
+}
+
+type StoreContent = {
+  title: string;
+  description: string;
+  productsTitle: string;
+  ordersTitle: string;
+  addProduct: string;
+  noProducts: string;
+  noOrders: string;
+  viewAll: string;
+  intro: string[];
+}
+
+// Define the language content type
+type DashboardLanguageContent = {
+  client: ClientContent;
+  artisan: ArtisanContent;
+  store: StoreContent;
+}
+
+// Define the full dashboard content type
+type DashboardContent = {
+  fr: DashboardLanguageContent;
+  ar: DashboardLanguageContent;
+}
+
 const DashboardPage = () => {
   const [userType, setUserType] = useState<"client" | "artisan" | "store">("client");
   const [language, setLanguage] = useState<"fr" | "ar">("fr");
@@ -17,7 +69,7 @@ const DashboardPage = () => {
   };
 
   // Content for the dashboard in both languages
-  const dashboardContent = {
+  const dashboardContent: DashboardContent = {
     fr: {
       client: {
         title: "Votre espace personnel",
@@ -146,7 +198,13 @@ const DashboardPage = () => {
     { id: 2, client: "Ahmed K.", products: "Set de tournevis", total: "4,800 DZD", date: "2023-05-12" },
   ];
 
+  // Get content based on user type and language using type assertion
   const content = dashboardContent[language][userType];
+
+  // Helper function for conditional type-safe access
+  const isClient = userType === "client";
+  const isArtisan = userType === "artisan";
+  const isStore = userType === "store";
 
   return (
     <div className="min-h-screen flex flex-col" dir={language === "ar" ? "rtl" : "ltr"}>
@@ -211,12 +269,12 @@ const DashboardPage = () => {
             </Card>
           </div>
 
-          {userType === "client" && (
+          {isClient && (
             <>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <Card className="col-span-3 md:col-span-3">
                   <CardHeader>
-                    <CardTitle>{content.searchTitle}</CardTitle>
+                    <CardTitle>{(content as ClientContent).searchTitle}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -224,19 +282,19 @@ const DashboardPage = () => {
                         <Search className={`absolute ${language === "ar" ? "right-3" : "left-3"} top-3 text-gray-400`} size={20} />
                         <input 
                           type="text" 
-                          placeholder={content.searchPlaceholder}
+                          placeholder={(content as ClientContent).searchPlaceholder}
                           className={`w-full ${language === "ar" ? "pr-10 pl-4" : "pl-10 pr-4"} py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue`}
                         />
                       </div>
                       <div className="relative sm:w-1/3">
                         <input 
                           type="text" 
-                          placeholder={content.locationPlaceholder}
+                          placeholder={(content as ClientContent).locationPlaceholder}
                           className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-artisan-blue"
                         />
                       </div>
                       <Button className="bg-artisan-blue hover:bg-artisan-blue-dark">
-                        {content.search}
+                        {(content as ClientContent).search}
                       </Button>
                     </div>
                   </CardContent>
@@ -245,7 +303,7 @@ const DashboardPage = () => {
 
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.requestsTitle}</CardTitle>
+                  <CardTitle>{(content as ClientContent).requestsTitle}</CardTitle>
                   <Button variant="outline" size="sm">{content.viewAll}</Button>
                 </CardHeader>
                 <CardContent>
@@ -286,18 +344,18 @@ const DashboardPage = () => {
                       </TableBody>
                     </Table>
                   ) : (
-                    <div className="text-center py-8 text-gray-500">{content.noRequests}</div>
+                    <div className="text-center py-8 text-gray-500">{(content as ClientContent).noRequests}</div>
                   )}
                 </CardContent>
               </Card>
             </>
           )}
 
-          {userType === "artisan" && (
+          {isArtisan && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.requestsTitle}</CardTitle>
+                  <CardTitle>{(content as ArtisanContent).requestsTitle}</CardTitle>
                   <Button variant="outline" size="sm">{content.viewAll}</Button>
                 </CardHeader>
                 <CardContent>
@@ -330,14 +388,14 @@ const DashboardPage = () => {
                       </TableBody>
                     </Table>
                   ) : (
-                    <div className="text-center py-8 text-gray-500">{content.noRequests}</div>
+                    <div className="text-center py-8 text-gray-500">{(content as ArtisanContent).noRequests}</div>
                   )}
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.ratingsTitle}</CardTitle>
+                  <CardTitle>{(content as ArtisanContent).ratingsTitle}</CardTitle>
                   <Button variant="outline" size="sm">{content.viewAll}</Button>
                 </CardHeader>
                 <CardContent>
@@ -362,30 +420,30 @@ const DashboardPage = () => {
                       ))}
                     </div>
                   ) : (
-                    <div className="text-center py-8 text-gray-500">{content.noRatings}</div>
+                    <div className="text-center py-8 text-gray-500">{(content as ArtisanContent).noRatings}</div>
                   )}
                 </CardContent>
               </Card>
 
               <Card className="lg:col-span-2">
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.upcomingTitle}</CardTitle>
+                  <CardTitle>{(content as ArtisanContent).upcomingTitle}</CardTitle>
                   <Button variant="outline" size="sm">{content.viewAll}</Button>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-center py-8 text-gray-500">{content.noUpcoming}</div>
+                  <div className="text-center py-8 text-gray-500">{(content as ArtisanContent).noUpcoming}</div>
                 </CardContent>
               </Card>
             </div>
           )}
 
-          {userType === "store" && (
+          {isStore && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.productsTitle}</CardTitle>
+                  <CardTitle>{(content as StoreContent).productsTitle}</CardTitle>
                   <Button variant="default" size="sm">
-                    {content.addProduct}
+                    {(content as StoreContent).addProduct}
                   </Button>
                 </CardHeader>
                 <CardContent>
@@ -415,14 +473,14 @@ const DashboardPage = () => {
                       </TableBody>
                     </Table>
                   ) : (
-                    <div className="text-center py-8 text-gray-500">{content.noProducts}</div>
+                    <div className="text-center py-8 text-gray-500">{(content as StoreContent).noProducts}</div>
                   )}
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>{content.ordersTitle}</CardTitle>
+                  <CardTitle>{(content as StoreContent).ordersTitle}</CardTitle>
                   <Button variant="outline" size="sm">{content.viewAll}</Button>
                 </CardHeader>
                 <CardContent>
@@ -452,7 +510,7 @@ const DashboardPage = () => {
                       </TableBody>
                     </Table>
                   ) : (
-                    <div className="text-center py-8 text-gray-500">{content.noOrders}</div>
+                    <div className="text-center py-8 text-gray-500">{(content as StoreContent).noOrders}</div>
                   )}
                 </CardContent>
               </Card>

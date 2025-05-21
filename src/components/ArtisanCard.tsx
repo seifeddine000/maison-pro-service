@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Star, MapPin, CheckCircle2, Scissors } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -89,12 +90,12 @@ const ArtisanCard: React.FC<ArtisanCardProps> = ({
           </div>
           
           <div className="mt-4 flex justify-between items-center">
-            <a 
-              href={`/artisan/${id}`} 
+            <Link 
+              to={`/artisan/${id}`} 
               className="text-artisan-blue hover:text-artisan-blue-dark font-medium"
             >
               Voir profil
-            </a>
+            </Link>
             <button className="btn-primary">
               Contacter
             </button>

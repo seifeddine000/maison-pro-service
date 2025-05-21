@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -7,10 +6,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { UserCheck, Wrench, Star, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Header />
       
       <main className="flex-grow">
@@ -172,17 +169,11 @@ const Index = () => {
               </div>
               
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4"
-                  alt="Artisan au travail"
-                  className="rounded-lg shadow-lg w-full h-auto object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4" alt="Artisan au travail" className="rounded-lg shadow-lg w-full h-auto object-cover" />
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg max-w-xs">
                   <div className="flex items-center mb-2">
                     <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={16} className="text-yellow-500 fill-yellow-500" />
-                      ))}
+                      {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-yellow-500 fill-yellow-500" />)}
                     </div>
                     <span className="ml-2 font-semibold">4.8/5</span>
                   </div>
@@ -205,7 +196,7 @@ const Index = () => {
               <Button size="lg" className="bg-white text-artisan-blue hover:bg-blue-50">
                 Je suis un client
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
+              <Button size="lg" variant="outline" className="border-white hover:bg-blue-700 text-white rounded-sm">
                 Je suis un artisan
               </Button>
             </div>
@@ -214,8 +205,6 @@ const Index = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

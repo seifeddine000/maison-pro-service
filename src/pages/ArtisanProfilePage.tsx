@@ -1,18 +1,20 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"; 
 import { Star, MapPin, CheckCircle2, Scissors, Phone, Mail, Clock } from 'lucide-react';
 import artisansData from '@/data/artisansData';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ChatDialog from '@/components/chat/ChatDialog';
 
 const ArtisanProfilePage = () => {
   const { id } = useParams();
   const [artisan, setArtisan] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     // Find the artisan with the matching id
@@ -70,6 +72,12 @@ const ArtisanProfilePage = () => {
                   {artisan.profession === "Couturier" && <Scissors className="h-4 w-4" />}
                   {artisan.profession}
                 </p>
+                <Button 
+                  className="mt-3 w-full"
+                  onClick={() => setChatOpen(true)}
+                >
+                  Contacter
+                </Button>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-center items-center mb-2">
@@ -216,6 +224,20 @@ const ArtisanProfilePage = () => {
       </main>
       
       <Footer />
+      
+      {/* ChatDialog for artisan profile */}
+      {artisan && (
+        <ChatDialog
+          open={chatOpen}
+          onOpenChange={setChatOpen}
+          artisan={{
+            id: artisan.id,
+            name: artisan.name,
+            profession: artisan.profession,
+            profileImage: artisan.profileImage
+          }}
+        />
+      )}
     </div>
   );
 };

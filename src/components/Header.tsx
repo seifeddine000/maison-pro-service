@@ -1,11 +1,31 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, User } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data } = await supabase.auth.getSession();
+      setIsAuthenticated(!!data.session);
+    };
+    
+    checkAuth();
+    
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsAuthenticated(!!session);
+    });
+    
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -29,9 +49,20 @@ const Header = () => {
               <Search size={16} />
               <span>Rechercher</span>
             </Button>
-            <Link to="/auth">
-              <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark">Se connecter</Button>
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-2">
+                <Link to="/profile">
+                  <Button variant="outline" size="sm" className="flex items-center gap-1">
+                    <User size={16} />
+                    <span>Profil</span>
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <Link to="/auth">
+                <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark">Se connecter</Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,14 +113,37 @@ const Header = () => {
               >
                 Comment ça marche
               </Link>
+              {isAuthenticated ? (
+                <Link 
+                  to="/profile"
+                  className="font-medium text-gray-700 hover:text-artisan-blue transition-colors px-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Profil
+                </Link>
+              ) : null}
               <div className="flex flex-col space-y-2 pt-2">
                 <Button variant="outline" size="sm" className="flex items-center justify-center gap-1">
                   <Search size={16} />
                   <span>Rechercher</span>
                 </Button>
-                <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
-                  <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark w-full">Se connecter</Button>
-                </Link>
+                {isAuthenticated ? (
+                  <Button 
+                    size="sm" 
+                    className="bg-artisan-blue hover:bg-artisan-blue-dark w-full"
+                    onClick={async () => {
+                      await supabase.auth.signOut();
+                      navigate('/auth');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Se déconnecter
+                  </Button>
+                ) : (
+                  <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
+                    <Button size="sm" className="bg-artisan-blue hover:bg-artisan-blue-dark w-full">Se connecter</Button>
+                  </Link>
+                )}
               </div>
             </nav>
           </div>

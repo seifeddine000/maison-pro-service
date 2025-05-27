@@ -57,12 +57,12 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/artisans">
-                <Button size="lg" className="bg-white text-artisan-blue hover:bg-blue-100 font-bold">
+                <Button size="lg" className="bg-white hover:bg-blue-100 font-bold text-orange-500">
                   {content[language].findArtisan}
                 </Button>
               </Link>
               <Link to="/tools">
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
+                <Button size="lg" variant="outline" className="text-white border-white bg-zinc-950 hover:bg-zinc-800">
                   {content[language].discoverTools}
                 </Button>
               </Link>

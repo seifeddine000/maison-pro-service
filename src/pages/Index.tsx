@@ -149,7 +149,7 @@ Avec nous, trouvez le bon professionnel au bon moment, et gagnez en temps, en qu
                 
                 <div className="mt-8">
                   <Link to="/artisans">
-                    <Button size="lg" className="mr-4 bg-artisan-blue hover:bg-artisan-blue-dark">
+                    <Button size="lg" className="mr-4 hover:bg-artisan-blue-dark bg-orange-500 hover:bg-orange-400">
                       Trouver un artisan
                     </Button>
                   </Link>
@@ -189,7 +189,7 @@ Avec nous, trouvez le bon professionnel au bon moment, et gagnez en temps, en qu
               <Button size="lg" className="bg-white text-artisan-blue hover:bg-blue-50">
                 Je suis un client
               </Button>
-              <Button size="lg" variant="outline" className="border-white hover:bg-blue-700 text-white rounded-sm">
+              <Button size="lg" variant="outline" className="border-white text-white rounded-sm bg-orange-500 hover:bg-orange-400">
                 Je suis un artisan
               </Button>
             </div>

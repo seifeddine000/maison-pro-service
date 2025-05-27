@@ -18,22 +18,15 @@ const Index = () => {
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6 text-center">Bienvenue sur ArtiConnect</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">Bienvenue sur notre plateforme dédiée à la mise en relation dans le domaine des services professionnels. Que vous soyez un particulier ou une entreprise à la recherche d’un artisan qualifié, un professionnel souhaitant proposer ses compétences, ou un magasin d’outillage ciblant des clients spécifiques, vous êtes au bon endroit.
+
+Notre mission est de faciliter l’accès à des services fiables et rapides, en connectant les clients aux meilleurs prestataires de leur région. Explorez notre interface simple et intuitive, choisissez le service dont vous avez besoin, et profitez d’un accompagnement complet tout au long du processus, de la recherche jusqu’à la réalisation de la mission.
+
+Avec nous, trouvez le bon professionnel au bon moment, et gagnez en temps, en qualité et en confiance.</p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Bienvenue sur notre plateforme de mise en relation dédiée aux services professionnels. 
-                Que vous soyez un particulier à la recherche d'un artisan qualifié, un professionnel 
-                souhaitant proposer ses compétences, ou un magasin d'outillage cherchant à toucher 
-                une clientèle ciblée, vous êtes au bon endroit.
-              </p>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Notre mission est de simplifier l'accès aux services fiables et rapides, en connectant 
-                les clients aux meilleurs prestataires de leur région. Explorez notre interface intuitive, 
-                choisissez le service qu'il vous faut, et bénéficiez d'un accompagnement tout au long du 
-                processus, depuis la recherche jusqu'à la finalisation de la mission.
-              </p>
+            </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Avec nous, trouvez le bon professionnel au bon moment, et gagnez en temps, 
-                en qualité et en confiance.
-              </p>
+            </p>
               
               <div className="flex justify-center gap-4">
                 <Link to="/artisans">
